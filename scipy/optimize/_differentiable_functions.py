@@ -103,8 +103,7 @@ class ScalarFunction:
                              "to be estimated using one of the "
                              "quasi-Newton strategies.")
 
-        # the astype call ensures that self.x is a copy of x0
-        self.x = np.atleast_1d(x0).astype(float)
+        self.x = np.atleast_1d(x0).copy()
         self.n = self.x.size
         self.nfev = 0
         self.ngev = 0
@@ -323,7 +322,7 @@ class VectorFunction:
                              "be estimated using one of the quasi-Newton "
                              "strategies.")
 
-        self.x = np.atleast_1d(x0).astype(float)
+        self.x = np.atleast_1d(x0).copy()
         self.n = self.x.size
         self.nfev = 0
         self.njev = 0
